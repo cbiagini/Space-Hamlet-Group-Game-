@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638001037671521573
-    m_Hash: 3295124568
+      ticks: 638001929661543785
+    m_Hash: 2405939636
   m_LockFileStatus:
     m_FilePath: C:/Users/vinyo/Documents/GitHub/Space-Hamlet-Group-Game-/SpaceHamletGroupGame/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638001037671631599
-    m_Hash: 1049030243
+      ticks: 638001929661643807
+    m_Hash: 3041084591
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -722,142 +722,6 @@ m_PackageAssets:
         url: https://github.com/Unity-Technologies/com.unity.ide.vscode.git
         revision: b0740c80bfc2440527c317109f7c3d9100132722
         path: 
-    - packageId: com.unity.inputsystem@1.3.0
-      testable: 0
-      isDirectDependency: 1
-      version: 1.3.0
-      source: 1
-      resolvedPath: C:\Users\vinyo\Documents\GitHub\Space-Hamlet-Group-Game-\SpaceHamletGroupGame\Library\PackageCache\com.unity.inputsystem@1.3.0
-      assetPath: Packages/com.unity.inputsystem
-      name: com.unity.inputsystem
-      displayName: Input System
-      author:
-        name: 
-        email: 
-        url: 
-      category: 
-      type: 
-      description: A new input system which can be used as a more extensible and
-        customizable alternative to Unity's classic input system in UnityEngine.Input.
-      status: 4
-      errors: []
-      versions:
-        all:
-        - 0.1.2-preview
-        - 0.2.0-preview
-        - 0.2.1-preview
-        - 0.2.6-preview
-        - 0.2.8-preview
-        - 0.2.10-preview
-        - 0.9.0-preview
-        - 0.9.1-preview
-        - 0.9.2-preview
-        - 0.9.3-preview
-        - 0.9.4-preview
-        - 0.9.5-preview
-        - 0.9.6-preview
-        - 1.0.0-preview
-        - 1.0.0-preview.1
-        - 1.0.0-preview.2
-        - 1.0.0-preview.3
-        - 1.0.0-preview.4
-        - 1.0.0-preview.5
-        - 1.0.0-preview.6
-        - 1.0.0-preview.7
-        - 1.0.0
-        - 1.0.1
-        - 1.0.2
-        - 1.1.0-pre.5
-        - 1.1.0-pre.6
-        - 1.1.0-preview.1
-        - 1.1.0-preview.2
-        - 1.1.0-preview.3
-        - 1.1.1
-        - 1.2.0
-        - 1.3.0
-        - 1.4.1
-        - 1.4.2
-        - 1.4.3
-        compatible:
-        - 0.1.2-preview
-        - 0.2.0-preview
-        - 0.2.1-preview
-        - 0.2.6-preview
-        - 0.2.8-preview
-        - 0.2.10-preview
-        - 0.9.0-preview
-        - 0.9.1-preview
-        - 0.9.2-preview
-        - 0.9.3-preview
-        - 0.9.4-preview
-        - 0.9.5-preview
-        - 0.9.6-preview
-        - 1.0.0-preview
-        - 1.0.0-preview.1
-        - 1.0.0-preview.2
-        - 1.0.0-preview.3
-        - 1.0.0-preview.4
-        - 1.0.0-preview.5
-        - 1.0.0-preview.6
-        - 1.0.0-preview.7
-        - 1.0.0
-        - 1.0.1
-        - 1.0.2
-        - 1.1.0-pre.5
-        - 1.1.0-pre.6
-        - 1.1.0-preview.1
-        - 1.1.0-preview.2
-        - 1.1.0-preview.3
-        - 1.1.1
-        - 1.2.0
-        - 1.3.0
-        - 1.4.1
-        - 1.4.2
-        - 1.4.3
-        verified: 1.3.0
-      dependencies:
-      - name: com.unity.modules.uielements
-        version: 1.0.0
-      resolvedDependencies:
-      - name: com.unity.modules.uielements
-        version: 1.0.0
-      - name: com.unity.modules.ui
-        version: 1.0.0
-      - name: com.unity.modules.imgui
-        version: 1.0.0
-      - name: com.unity.modules.jsonserialize
-        version: 1.0.0
-      - name: com.unity.modules.uielementsnative
-        version: 1.0.0
-      keywords:
-      - input
-      - events
-      - keyboard
-      - mouse
-      - gamepad
-      - touch
-      - vr
-      - xr
-      registry:
-        id: main
-        name: 
-        url: https://packages.unity.com
-        scopes: []
-        isDefault: 1
-        capabilities: 7
-      hasRegistry: 1
-      hideInEditor: 1
-      entitlements:
-        isAllowed: 1
-      isAssetStorePackage: 0
-      datePublishedTicks: 637769972190000000
-      documentationUrl: 
-      hasRepository: 1
-      repository:
-        type: git
-        url: https://github.com/Unity-Technologies/InputSystem.git
-        revision: 76d3fd182183dff9e9793431de614fd1e69e363c
-        path: 
     - packageId: com.unity.test-framework@1.1.31
       testable: 0
       isDirectDependency: 1
@@ -1290,6 +1154,106 @@ m_PackageAssets:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/com.unity.timeline.git
         revision: 527e4364e28028f20f04fc51db671eb4bb910a26
+        path: 
+    - packageId: com.unity.toolchain.win-x86_64-linux-x86_64@2.0.2
+      testable: 0
+      isDirectDependency: 1
+      version: 2.0.2
+      source: 1
+      resolvedPath: C:\Users\vinyo\Documents\GitHub\Space-Hamlet-Group-Game-\SpaceHamletGroupGame\Library\PackageCache\com.unity.toolchain.win-x86_64-linux-x86_64@2.0.2
+      assetPath: Packages/com.unity.toolchain.win-x86_64-linux-x86_64
+      name: com.unity.toolchain.win-x86_64-linux-x86_64
+      displayName: Toolchain Win Linux x64
+      author:
+        name: 
+        email: 
+        url: 
+      category: 
+      type: 
+      description: Cross-compilation toolchain to build player target Linux x86_64
+        on host Windows x86_64
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 0.1.4-preview
+        - 0.1.5-preview
+        - 0.1.6-preview
+        - 0.1.7-preview
+        - 0.1.8-preview
+        - 0.1.9-preview
+        - 0.1.10-preview
+        - 0.1.11-preview
+        - 0.1.13-preview
+        - 0.1.14-preview
+        - 0.1.15-preview
+        - 0.1.16-preview
+        - 0.1.17-preview
+        - 0.1.18-preview
+        - 0.1.19-preview
+        - 0.1.20-preview
+        - 0.1.21-preview
+        - 1.0.0
+        - 2.0.0
+        - 2.0.1
+        - 2.0.2
+        compatible:
+        - 0.1.4-preview
+        - 0.1.5-preview
+        - 0.1.6-preview
+        - 0.1.7-preview
+        - 0.1.8-preview
+        - 0.1.9-preview
+        - 0.1.10-preview
+        - 0.1.11-preview
+        - 0.1.13-preview
+        - 0.1.14-preview
+        - 0.1.15-preview
+        - 0.1.16-preview
+        - 0.1.17-preview
+        - 0.1.18-preview
+        - 0.1.19-preview
+        - 0.1.20-preview
+        - 0.1.21-preview
+        - 1.0.0
+        - 2.0.0
+        - 2.0.1
+        - 2.0.2
+        verified: 
+      dependencies:
+      - name: com.unity.sysroot
+        version: 2.0.3
+      - name: com.unity.sysroot.linux-x86_64
+        version: 2.0.2
+      resolvedDependencies:
+      - name: com.unity.sysroot
+        version: 2.0.3
+      - name: com.unity.sysroot.linux-x86_64
+        version: 2.0.2
+      keywords:
+      - toolchain
+      - windows
+      - linux
+      - cross-compilation
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637902311680000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: https://github.com/Unity-Technologies/com.unity.sysroot.git
+        revision: 66ed41bba76e1f66c4e578e9bad86d33dff8b82b
         path: 
     - packageId: com.unity.ugui@1.0.0
       testable: 0
@@ -3095,6 +3059,167 @@ m_PackageAssets:
         type: 
         url: 
         revision: 
+        path: 
+    - packageId: com.unity.sysroot@2.0.3
+      testable: 0
+      isDirectDependency: 0
+      version: 2.0.3
+      source: 1
+      resolvedPath: C:\Users\vinyo\Documents\GitHub\Space-Hamlet-Group-Game-\SpaceHamletGroupGame\Library\PackageCache\com.unity.sysroot@2.0.3
+      assetPath: Packages/com.unity.sysroot
+      name: com.unity.sysroot
+      displayName: Sysroot Base
+      author:
+        name: 
+        email: 
+        url: 
+      category: 
+      type: 
+      description: This is the base sysroot package required by all sysroot and toolchain
+        packages
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 0.1.7-preview
+        - 0.1.8-preview
+        - 0.1.9-preview
+        - 0.1.10-preview
+        - 0.1.11-preview
+        - 0.1.12-preview
+        - 0.1.14-preview
+        - 0.1.15-preview
+        - 0.1.16-preview
+        - 0.1.17-preview
+        - 0.1.18-preview
+        - 0.1.19-preview
+        - 1.0.0
+        - 2.0.0
+        - 2.0.2
+        - 2.0.3
+        compatible:
+        - 0.1.7-preview
+        - 0.1.8-preview
+        - 0.1.9-preview
+        - 0.1.10-preview
+        - 0.1.11-preview
+        - 0.1.12-preview
+        - 0.1.14-preview
+        - 0.1.15-preview
+        - 0.1.16-preview
+        - 0.1.17-preview
+        - 0.1.18-preview
+        - 0.1.19-preview
+        - 1.0.0
+        - 2.0.0
+        - 2.0.2
+        - 2.0.3
+        verified: 
+      dependencies: []
+      resolvedDependencies: []
+      keywords:
+      - unity
+      - linux
+      - sysroot
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637902310480000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: https://github.com/Unity-Technologies/com.unity.sysroot.git
+        revision: 66ed41bba76e1f66c4e578e9bad86d33dff8b82b
+        path: 
+    - packageId: com.unity.sysroot.linux-x86_64@2.0.2
+      testable: 0
+      isDirectDependency: 0
+      version: 2.0.2
+      source: 1
+      resolvedPath: C:\Users\vinyo\Documents\GitHub\Space-Hamlet-Group-Game-\SpaceHamletGroupGame\Library\PackageCache\com.unity.sysroot.linux-x86_64@2.0.2
+      assetPath: Packages/com.unity.sysroot.linux-x86_64
+      name: com.unity.sysroot.linux-x86_64
+      displayName: Sysroot Linux x64
+      author:
+        name: 
+        email: 
+        url: 
+      category: 
+      type: 
+      description: Sysroot used to build unity player for linux x86_64
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 0.1.6-preview
+        - 0.1.7-preview
+        - 0.1.8-preview
+        - 0.1.9-preview
+        - 0.1.10-preview
+        - 0.1.11-preview
+        - 0.1.12-preview
+        - 0.1.13-preview
+        - 0.1.14-preview
+        - 0.1.15-preview
+        - 1.0.0
+        - 2.0.0
+        - 2.0.1
+        - 2.0.2
+        compatible:
+        - 0.1.6-preview
+        - 0.1.7-preview
+        - 0.1.8-preview
+        - 0.1.9-preview
+        - 0.1.10-preview
+        - 0.1.11-preview
+        - 0.1.12-preview
+        - 0.1.13-preview
+        - 0.1.14-preview
+        - 0.1.15-preview
+        - 1.0.0
+        - 2.0.0
+        - 2.0.1
+        - 2.0.2
+        verified: 
+      dependencies:
+      - name: com.unity.sysroot
+        version: 2.0.3
+      resolvedDependencies:
+      - name: com.unity.sysroot
+        version: 2.0.3
+      keywords:
+      - unity
+      - linux
+      - sysroot
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637902310650000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: https://github.com/Unity-Technologies/com.unity.sysroot.git
+        revision: 66ed41bba76e1f66c4e578e9bad86d33dff8b82b
         path: 
     - packageId: com.unity.ext.nunit@1.0.6
       testable: 0
