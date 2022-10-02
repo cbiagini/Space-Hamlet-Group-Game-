@@ -6,12 +6,10 @@ using UnityEngine.SceneManagement;
 public class OnMouseDownVictory : MonoBehaviour
 {
     //public Timer timer;
+    public bool hoveringOver;
+    public bool mouseOver;
     public bool clickTriggered;
 
-    private void OnMouseDown()
-    {
-        ClickTriggered();
-    }
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +19,36 @@ public class OnMouseDownVictory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (clickTriggered) {
-            clickTriggered = false; //immediately change it back so it's clickable again
+        if (mouseOver) {
+            if (Input.GetMouseButtonDown(0)) ClickTriggered(); //this is the same as the onmousedown function but idk why that one isn't working
+            //clickTriggered = false; //immediately change it back so it's clickable again
         } else
         {
             //do whatever but not
         }
     }
+
+    private void OnTriggerStay(Collider other) //check if colliding with triggers. since the only triggers on scene are the player i didn't add any tags here but it might be needed later
+    {
+        if (other.tag == "Player") hoveringOver = true;
+        if (other.tag == "EditorOnly") mouseOver = true;
+    }
+
+    private void OnTriggerExit(Collider other) //check if player left collider
+    {
+        Debug.Log("Stopped touching " + other);
+        hoveringOver = false;
+        mouseOver = false;
+        clickTriggered = false;
+    }
+
+    /*private void OnMouseDown()
+    {
+        if (hoveringOver == true)
+        {
+            ClickTriggered();
+        }
+    }*/
 
     void ClickTriggered()
     {

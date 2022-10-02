@@ -47,4 +47,9 @@ public class PlayerController : MonoBehaviour
         }
         Debug.Log("Colliding with"+other+". Can possess: " + canPossess);
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        canPossess = false;
+    }
 }
