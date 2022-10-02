@@ -5,41 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class OnMouseDownVictory : MonoBehaviour
 {
-    public Timer timer;
-
-    bool clickTriggered;
+    //public Timer timer;
+    public bool clickTriggered;
 
     private void OnMouseDown()
     {
-        timer.StopTimer();
-
-        SceneManager.LoadScene("VictoryScreen");
-
-        timer.gameObject.SetActive(false);
-
-
+        ClickTriggered();
     }
-
-
-
     // Start is called before the first frame update
     void Start()
     {
-        timer = FindObjectOfType<Timer>();
+        //timer = FindObjectOfType<Timer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (clickTriggered == false)
+        if (clickTriggered) {
+            clickTriggered = false; //immediately change it back so it's clickable again
+        } else
         {
-            ClickTriggered();
+            //do whatever but not
         }
-        void ClickTriggered()
-        {
-            print("Object Clicked!");
-            clickTriggered = true;
-        }
-        //testing to make sure object has been clicked!
     }
+
+    void ClickTriggered()
+    {
+        print("Object Clicked!");
+        clickTriggered = true;
+    }
+
 }

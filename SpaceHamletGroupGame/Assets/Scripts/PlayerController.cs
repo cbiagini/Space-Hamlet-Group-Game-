@@ -45,6 +45,6 @@ public class PlayerController : MonoBehaviour
         {
             canPossess = false;
         }
-        Debug.Log("Can possess: " + canPossess);
+        Debug.Log("Colliding with"+other+". Can possess: " + canPossess);
     }
 }
