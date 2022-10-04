@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour
     public float startMinutes;
     public Text currentTimeText;
     public string Level1;
-    public OnMouseDownVictory onMouseDownVictory;
+    public OnMouseDownTimerStop timerStop;
     public Timer timer;
 
 
@@ -76,7 +76,7 @@ public class Timer : MonoBehaviour
 
         if (currentTime <= 0)
         {
-            SceneManager.LoadScene("FailScene");
+            SceneManager.LoadScene("Room1Victory"); //TODO add fail scene to game
 
             timer.gameObject.SetActive(false);
         }
