@@ -30,7 +30,7 @@ public class OnMouseDownClicker: MonoBehaviour
     private void OnTriggerStay(Collider other) //check if colliding with triggers. since the only triggers on scene are the player i didn't add any tags here but it might be needed later
     {
         if (other.tag == "Player") hoveringOver = true;
-        if (other.tag == "EditorOnly") mouseOver = true;
+        if ((other.tag == "EditorOnly")&&(hoveringOver)) mouseOver = true;
     }
 
     private void OnTriggerExit(Collider other) //check if player left collider

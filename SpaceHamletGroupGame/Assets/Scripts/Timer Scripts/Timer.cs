@@ -56,8 +56,8 @@ public class Timer : MonoBehaviour
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
         //will store amount of time to convert seconds into minutes (as per what we are trying to do in this instance)
 
-
-        currentTimeText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString();
+        //currentTimeText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString();
+        currentTimeText.text = time.ToString(@"mm"":""ss");
 
         //each frame text will be updated with the latest value
 
