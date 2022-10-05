@@ -76,7 +76,7 @@ public class Timer : MonoBehaviour
 
         if (currentTime <= 0)
         {
-            SceneManager.LoadScene("Room1Victory"); //TODO add fail scene to game
+            SceneManager.LoadScene("Room1Fail"); //TODO add fail scene to game
 
             timer.gameObject.SetActive(false);
         }
