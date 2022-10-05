@@ -8,11 +8,13 @@ public class PlayerController : MonoBehaviour
     //Using this tutorial for the mouse movement: https://gamedevbeginner.com/how-to-convert-the-mouse-position-to-world-space-in-unity-2d-3d/
 
     //Variables setup: Player speed, mouse click storage; if the player is able to possess something at the moment
-    public float playerSpd;
+    [SerializeField] private float playerSpd;
     [SerializeField] private Vector3 mousePosition;
     [SerializeField] private Vector3 mousePosOnScreen;
     [SerializeField] private Vector2 mousePlaceOnClick; //this is a private variable, but we want to read it on the unity editor, so we add SerializeField to show it on the unity GUI
-    public bool canPossess = false;
+    [SerializeField] private GameObject hoveringOver;
+    [SerializeField] private bool canPossess = false;
+    public bool isPossessing = false;
     void Start()
     {
         
@@ -41,9 +43,11 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "Object")
         {
             canPossess = true;
+            hoveringOver = other.gameObject;
         } else
         {
             canPossess = false;
+            hoveringOver = null;
         }
         Debug.Log("Colliding with"+other+". Can possess: " + canPossess);
     }
