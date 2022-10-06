@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 646771600446867396}
   - component: {fileID: 646771600446867419}
   m_Layer: 0
-  m_Name: Square
+  m_Name: ChangeSpriteHere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 646771600446867397}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.41, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 646771600834347392}
@@ -140,7 +140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 646771601884561844}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.16, y: 7.65, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 646771600834347392}
@@ -159,7 +159,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: -1.48, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &646771601884561482
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -174,7 +174,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!114 &646771601884561483
 MonoBehaviour:
