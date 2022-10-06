@@ -14,10 +14,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 mousePlaceOnClick; //this is a private variable, but we want to read it on the unity editor, so we add SerializeField to show it on the unity GUI
     [SerializeField] private GameObject hoveringOver;
     [SerializeField] private bool canPossess = false;
-    public bool isPossessing = false;
+    private Animator myAnimator;
+
+    public enum MoveType { Rotate, Walk, SingleAction, Ghost }
+    public MoveType myMoveType = MoveType.Walk;
+    private PlayerFollowsPossessedObject playerFollows;
+
     void Start()
     {
-        
+        myAnimator = GetComponent<Animator>();
+
     }
 
     void Update()
@@ -26,7 +32,41 @@ public class PlayerController : MonoBehaviour
         mousePosition = Input.mousePosition; //get mouse position and store in a variable
         mousePosition.z = Camera.main.transform.position.z * (-1); //get the camera position and invert it so that the mouse position doesn't get read as the camera's position on the following function
         mousePosOnScreen = Camera.main.ScreenToWorldPoint(mousePosition); //transform the absolute mouse position into the relative position of the mouse as seen by the camera
-        UpdateVelocity(); //storing in a function so we can stop it easily if necessary (also to copy the platformer controller we already have)
+
+        if ((canPossess)&&(hoveringOver!=null))
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                PossesserSwitch.GetInstance().changeControl(hoveringOver);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (PossesserSwitch.GetInstance().player != gameObject)
+            {
+                PossesserSwitch.GetInstance().changeControl(PossesserSwitch.GetInstance().player);
+            }
+        }
+
+            switch (myMoveType)
+        {
+            case MoveType.Rotate:
+                UpdateRotation();
+                break;
+            case MoveType.Walk:
+                UpdateVelocity();
+                break;
+            case MoveType.SingleAction:
+                SingleAction();
+                break;
+            case MoveType.Ghost:
+                UpdateVelocity();
+                break;
+            default:
+                Debug.LogError("No movement type selected!");
+                break;
+        }
     }
 
     void UpdateVelocity()
@@ -38,18 +78,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void UpdateRotation()
+    {
+        if (Input.GetMouseButton(0)) {
+            float angle = Mathf.Atan2(mousePosOnScreen.y, mousePosOnScreen.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle - 90f, Vector3.back);
+        }
+    }
+
+    void SingleAction()
+    {
+        myAnimator.SetTrigger("SingleAnim");
+        //TODO add in extra code
+    }
+
     private void OnTriggerEnter(Collider other) //logging possible possession check
     {
         if (other.tag == "Object")
         {
             canPossess = true;
             hoveringOver = other.gameObject;
+            Debug.Log("Colliding with" + other + ". Can possess: " + canPossess);
         } else
         {
             canPossess = false;
             hoveringOver = null;
         }
-        Debug.Log("Colliding with"+other+". Can possess: " + canPossess);
     }
 
     private void OnTriggerExit(Collider other)
