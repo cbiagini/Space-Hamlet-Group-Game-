@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ShowDialogueOnTriggerEnter : MonoBehaviour
 {
     [HideInInspector]
-    public DialogueManagerForTriggerEnter dialogueManager;
+    public DialogueManager dialogueManager;
     public string dialogueLine;
 
     //when entering the collision, the UI Canvas is enabled
