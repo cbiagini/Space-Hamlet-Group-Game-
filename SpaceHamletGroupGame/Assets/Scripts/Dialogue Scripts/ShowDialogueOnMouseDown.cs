@@ -3,13 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShowDialogueOnTriggerEnter : MonoBehaviour
+public class ShowDialogueOnMouseDown : MonoBehaviour
 {
     [HideInInspector]
-    public DialogueManagerForTriggerEnter dialogueManager;
+    public DialogueManagerForOnMouseDown dialogueManager;
     public string dialogueLine;
 
-    //when entering the collision, the UI Canvas is enabled
+    private void OnMouseDown()
+    {
+        if (dialogueManager.dialogueBox.activeSelf)
+        {
+            dialogueManager.HideDialogue(this);
+        }
+        else
+        {
+            dialogueManager.ShowDialogue(this);
+        }
+    }
+    //when pressing the collision, the UI Canvas is enabled
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -19,7 +30,7 @@ public class ShowDialogueOnTriggerEnter : MonoBehaviour
         }
     }
 
-    //when exiting the collision, the UI Canvas is disabled
+    //when pressing the collision again, the UI Canvas is disabled
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
