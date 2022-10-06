@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManagerForTriggerEnter : MonoBehaviour
 {
     /*This class enables and disables a GameObject called dialogueBox, which will probably be a Unity UI Object like a Canvas
     //It also can be given data from any ShowDialogueOnTriggerEnter components in the scene to update its child text component
@@ -14,12 +14,12 @@ public class DialogueManager : MonoBehaviour
     private Text dialogueText;
 
     public ShowDialogueOnTriggerEnter currentDialogue;
-
+    
     // Awake is called before the first frame update
     private void Awake()
     {
         dialogueText = dialogueBox.GetComponentInChildren<Text>();
-        if (dialogueText == null)
+        if(dialogueText == null)
         {
             Debug.LogError("DialogueManager could not find Text component");
         }
@@ -56,7 +56,7 @@ public class DialogueManager : MonoBehaviour
     */
     public void HideDialogue(ShowDialogueOnTriggerEnter instigator)
     {
-        if (currentDialogue == instigator && dialogueBox.activeSelf == true)
+        if(currentDialogue == instigator && dialogueBox.activeSelf == true)
         {
             dialogueBox.SetActive(false);
             currentDialogue = null;
