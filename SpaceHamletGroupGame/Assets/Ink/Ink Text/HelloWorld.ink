@@ -1,0 +1,1 @@
+Hello, world! #speaker:MC

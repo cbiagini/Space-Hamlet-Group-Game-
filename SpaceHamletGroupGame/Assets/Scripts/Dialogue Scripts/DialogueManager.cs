@@ -1,65 +1,191 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
+using Ink.Runtime;
+
+//https://www.youtube.com/watch?v=vY0Sk93YUhA <- tutorial used
 
 public class DialogueManager : MonoBehaviour
 {
-    /*This class enables and disables a GameObject called dialogueBox, which will probably be a Unity UI Object like a Canvas
-    //It also can be given data from any ShowDialogueOnTriggerEnter components in the scene to update its child text component
-    to accomplish this, we will give every ShowDialogueOnTriggerEnter component a reference to this script, and there should only be one in the scene!
-    */
+    private static DialogueManager instance; // singleton
 
-    public GameObject dialogueBox;
-    private Text dialogueText;
+    public GameObject dialoguePanel;
+    public TextMeshProUGUI dialogueText;
+    public TextMeshProUGUI speakerName;
+    //[SerializeField] private Animator currentAnimator;
+    public Story currentStory;
+    public bool dialogueIsPlaying { get; private set; }
 
-    public ShowDialogueOnTriggerEnter currentDialogue;
-    
-    // Awake is called before the first frame update
+    public GameObject[] choices;
+    private TextMeshProUGUI[] choicesText;
+    [SerializeField] private GameObject player;
+    [HideInInspector] public DialogueVarDictionary dialogueVarDictionary;
+    [SerializeField] private TextAsset loadGlobalsJSON;
+
+    private const string SPEAKER_TAG = "speaker";
+    private const string EMOTION_TAG = "emotion";
+    private const string ACTION_TAG = "do";
+    private const string ACTION_WHAT_TAG = "to";
+
     private void Awake()
     {
-        dialogueText = dialogueBox.GetComponentInChildren<Text>();
-        if(dialogueText == null)
+        if (instance != null)
         {
-            Debug.LogError("DialogueManager could not find Text component");
+            Debug.Log("There are more than one dialogue managers on the scene.");
         }
-
-        // We are compiling an array, a collection, of all of these dialogueTrigger components in the scene before the game starts
-        ShowDialogueOnTriggerEnter[] dialogueTriggerArray = FindObjectsOfType<ShowDialogueOnTriggerEnter>();
-
-        //we then cycle through every single element of that array and making sure this component is hooked up to the dialogueManager variable in each of those triggers
-        foreach (ShowDialogueOnTriggerEnter dialogueTrigger in dialogueTriggerArray)
-        {
-            dialogueTrigger.dialogueManager = this;
-        }
-
-        dialogueBox.SetActive(false);
+        instance = this;
+        dialogueVarDictionary = new DialogueVarDictionary(loadGlobalsJSON);
     }
 
-    /*This method is called from the ShowDialogueOnTriggerEnter script, and that component tells the dialogueManager what text to display and then makes the dialogue box appear
-    //we are checking whether the dialogueBox is already visible and whether the currentDialogue is the same as the newDialogue so that, 
-    if the dialogueBox had a an animation that plays when it is made active  we can avoid that being triggered redundantly
-    */
-    public void ShowDialogue(ShowDialogueOnTriggerEnter newDialogue)
+    public static DialogueManager GetInstance()
     {
-        if (currentDialogue != newDialogue && dialogueBox.activeSelf == false)
+        return instance;
+    }
+
+    private void Start()
+    {
+        dialogueIsPlaying = false;
+        dialoguePanel.SetActive(dialogueIsPlaying);
+        choicesText = new TextMeshProUGUI[choices.Length];
+        int index = 0;
+        foreach (GameObject choice in choices)
         {
-            dialogueBox.SetActive(true);
-            dialogueText.text = newDialogue.dialogueLine;
-            currentDialogue = newDialogue;
+            choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
+            index++;
         }
     }
 
-    /*The HideDialogue method is also called from the ShowDialogueOnTriggerEnter script, and it checks if the dialogueBox is currentlyVisible and that the current dialogue
-    //matches the trigger that is instigating this HideDialogue method. In case multiple dialogueTriggers overlap, this will prevent one trigger from prematurely closing
-    a neigboring trigger
-    */
-    public void HideDialogue(ShowDialogueOnTriggerEnter instigator)
+    private void Update()
     {
-        if(currentDialogue == instigator && dialogueBox.activeSelf == true)
+        var Click = (Input.GetButtonDown("Fire1"));
+        //var Space = Input.GetKeyDown(KeyCode.Space);
+        if (!dialogueIsPlaying) return;
+        if ((Click) && (currentStory.currentChoices.Count <= 0)) //CHANGE - had to make it like this so it wouldn't close out of the window when you're trying to pick something
+            //CHANGE 2 - added a redundant variable to try to account for the continueStory in the dialogue mode entrance;
         {
-            dialogueBox.SetActive(false);
-            currentDialogue = null;
+            ContinueStory();
         }
+    }
+
+    public void EnterDialogueMode (TextAsset inkJSON, GameObject focus) //, Animator animator
+    {
+        Debug.Log("Entering dialogue mode..." + gameObject);
+        currentStory = new Story(inkJSON.text);
+
+        dialogueIsPlaying = true;
+        dialoguePanel.SetActive(dialogueIsPlaying);
+        dialogueVarDictionary.StartListening(currentStory);
+        TimerScript.GetInstance().timerPaused = true;
+        /*if (animator != null) {
+            currentAnimator = animator;
+        }*/
+        //copied code from continue story WITHOUT the exit dialogue tag. test on launch to see if it works or if it does the same thing as on the editor!
+        Debug.Log("Story of " + gameObject + " is starting...");
+        dialogueText.text = currentStory.Continue();
+        Debug.Log(dialogueText.text);
+        DisplayChoices();
+        InkTagHandler(currentStory.currentTags);
+        dialogueIsPlaying = true;
+    }
+
+    private void ContinueStory()
+    {
+        if (currentStory.canContinue)
+        {
+            Debug.Log("Story of " + gameObject + " is continuing...");
+            dialogueText.text = currentStory.Continue();
+            Debug.Log(dialogueText.text);
+            DisplayChoices();
+            InkTagHandler(currentStory.currentTags);
+        }
+        else
+        {
+            Debug.Log("Story is over. Exiting...");
+            StartCoroutine(ExitDialogueMode());
+        }
+    }
+
+    public void MakeChoice(int choiceIndex) // these are called by the onclick buttons.
+    {
+        currentStory.ChooseChoiceIndex(choiceIndex);
+        ContinueStory();
+    }
+
+    private void DisplayChoices()
+    {
+        List<Choice> currentChoices = currentStory.currentChoices;
+        //defensive check
+        if (currentChoices.Count > choices.Length)
+        {
+            Debug.LogError("Too many choices for too few game objects!");
+        }
+        int index = 0;
+        foreach (Choice choice in currentChoices)
+        {
+            choices[index].gameObject.SetActive(true);
+            choicesText[index].text = choice.text;
+            index++;
+        } //and also hide all unused choices
+        for (int i = index; i < choices.Length; i++)
+        {
+            choices[i].gameObject.SetActive(false);
+        }
+    }
+
+    private void InkTagHandler(List<string> currentTags)
+    {
+        foreach (string tag in currentTags)
+        {
+            string[] splitTag = tag.Split(':');
+            if (splitTag.Length != 2) Debug.LogError("Tag has incorrect methodology: " + tag);
+            string tagKey = splitTag[0].Trim();
+            string tagValue = splitTag[1].Trim();
+
+            switch (tagKey)
+            {
+                case SPEAKER_TAG:
+                    speakerName.text = tagValue;
+                    break;
+                case EMOTION_TAG:
+                    //if (currentAnimator != null) currentAnimator.SetTrigger(tagValue);
+                    //else Debug.Log("Attempted to give " + tagValue + " to animator but there is no animator");
+                    Debug.Log("Add emotion handler on characters for emotion: " + tagValue); //TODO https://www.youtube.com/watch?v=tVrxeUIEV9E
+                    break;
+                case ACTION_TAG:
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    break;
+                default:
+                    Debug.LogWarning("Incorrectly handled tag! " + tag);
+                    break;
+            }
+
+        }
+    }
+
+    public void SetVariableState(string variableName, Ink.Runtime.Object variableValue) //ink.runtime.object if using the commented out one
+    {
+        //currentStory.variablesState["variableName"] = variableValue;
+
+        if (dialogueVarDictionary.variables.ContainsKey(variableName))
+        {
+            dialogueVarDictionary.variables.Remove(variableName);
+            dialogueVarDictionary.variables.Add(variableName, variableValue);
+            Debug.Log("Changed " + variableName + " to " + variableValue);
+        } else
+        {
+            Debug.LogWarning("No variable called " + variableName + "in dictionary");
+        }
+    }
+
+    private IEnumerator ExitDialogueMode()
+    {
+        yield return new WaitForSeconds(0.1f);
+        dialogueVarDictionary.StopListening(currentStory);
+        dialogueIsPlaying = false;
+        dialoguePanel.SetActive(dialogueIsPlaying);
+        dialogueText.text = "";
+        TimerScript.GetInstance().timerPaused = false;
     }
 }
