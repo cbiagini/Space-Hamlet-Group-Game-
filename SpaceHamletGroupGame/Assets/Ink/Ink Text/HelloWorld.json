@@ -1,1 +1,1 @@
-﻿{"inkVersion":20,"root":[["^Hello, world! ",{"#":"speaker:MC"},"\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}
+﻿{"inkVersion":20,"root":[["\n","^Hello, world!","\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"global decl":["ev",false,{"VAR=":"test"},"/ev","end",null],"#f":1}],"listDefs":{}}

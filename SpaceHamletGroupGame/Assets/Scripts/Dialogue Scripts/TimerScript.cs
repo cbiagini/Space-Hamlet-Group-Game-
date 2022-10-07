@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 using System;
 
@@ -51,11 +52,11 @@ public class TimerScript : MonoBehaviour
 
     void Update()
     {
-        /*if (startSequence)
+        if (startSequence)
         {
             DialogueManager.GetInstance().EnterDialogueMode(startTriggerJSON, player); //, GetComponentInChildren<Animator>()
             startSequence = false;
-        }*/
+        }
         if (timerActive) currentTime -= Time.deltaTime;
         //check if timer is active. Of true, each frame decreases current time with number of milliseconds that passed since the last update. 
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
@@ -92,7 +93,6 @@ public class TimerScript : MonoBehaviour
     {
         Debug.LogWarning("Game Ending...");
         DialogueManager.GetInstance().EnterDialogueMode(endTriggerJSON, player); //, GetComponentInChildren<Animator>()
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //go to next scene in build index (which is the end scene)
-        //timer.gameObject.SetActive(false);
+        SceneManager.LoadScene("Room1Fail"); //go to Room1Fail
     }
 }

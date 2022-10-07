@@ -1,1 +1,2 @@
-Hello, world! #speaker:MC
+INCLUDE GLOBALS.ink
+Hello, world!
