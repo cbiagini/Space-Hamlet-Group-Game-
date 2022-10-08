@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         //TODO add in extra code
     }
 
-    private void OnTriggerEnter(Collider other) //logging possible possession check
+    private void OnTriggerStay(Collider other) //logging possible possession check
     {
         if (other.tag == "Object")
         {
@@ -101,8 +101,8 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Colliding with" + other + ". Can possess: " + canPossess);
         } else
         {
-            canPossess = false;
-            hoveringOver = null;
+            //canPossess = false;
+            //hoveringOver = null;
         }
     }
 
