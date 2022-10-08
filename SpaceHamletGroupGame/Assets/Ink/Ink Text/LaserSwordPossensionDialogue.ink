@@ -1,0 +1,1 @@
+I can't believe Velma missed this glowing laser swo-oh, she doesn't have her glasses...No wonder. Well, I can certainly show her it now.

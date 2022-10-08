@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1655680590}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -513,7 +513,7 @@ MonoBehaviour:
   player: {fileID: 707082152}
   currentTime: 0
   startMinutes: 5
-  startTriggerJSON: {fileID: 4900000, guid: cd215eef944e37445bdeb47c04cd09b3, type: 3}
+  startTriggerJSON: {fileID: 4900000, guid: e76f4ebdf90db9840a667e131405c983, type: 3}
   endTriggerJSON: {fileID: 4900000, guid: cd215eef944e37445bdeb47c04cd09b3, type: 3}
   currentTimeText: {fileID: 755817684}
 --- !u!1 &188310646
@@ -971,6 +971,7 @@ GameObject:
   - component: {fileID: 377522421}
   - component: {fileID: 377522420}
   - component: {fileID: 377522422}
+  - component: {fileID: 377522423}
   m_Layer: 0
   m_Name: BookPossessable
   m_TagString: Object
@@ -1132,6 +1133,20 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &377522423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377522416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b51442f54f16c46974953f798fa604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focusVisual: {fileID: 0}
+  inkJSON: {fileID: 4900000, guid: 72398053024e0b045a9116d75b9f806c, type: 3}
 --- !u!1 &386956132
 GameObject:
   m_ObjectHideFlags: 0
@@ -13690,6 +13705,50 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &1028844585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1028844587}
+  - component: {fileID: 1028844586}
+  m_Layer: 0
+  m_Name: SwordVictory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1028844586
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028844585}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.29, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1028844587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028844585}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.03, y: -0.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1080672837
 GameObject:
   m_ObjectHideFlags: 0
@@ -19062,6 +19121,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LampPosAndDia
       objectReference: {fileID: 0}
+    - target: {fileID: 2965670071035733667, guid: 629956bb7a3cfe7469b919ec15636c2d, type: 3}
+      propertyPath: m_Size.x
+      value: 1.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2965670071035733667, guid: 629956bb7a3cfe7469b919ec15636c2d, type: 3}
+      propertyPath: m_Size.y
+      value: 1.34
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 629956bb7a3cfe7469b919ec15636c2d, type: 3}
 --- !u!1 &1626367069
@@ -19130,7 +19197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focusVisual: {fileID: 0}
-  inkJSON: {fileID: 4900000, guid: bb5e35450b525ab479b2088797149df5, type: 3}
+  inkJSON: {fileID: 4900000, guid: e76f4ebdf90db9840a667e131405c983, type: 3}
 --- !u!65 &1627360863
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19267,6 +19334,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1671268724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1671268726}
+  - component: {fileID: 1671268725}
+  m_Layer: 0
+  m_Name: ScareVictory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1671268725
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671268724}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.57, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1671268726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671268724}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.87, y: -0.83, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1687193751
 GameObject:
@@ -19578,7 +19689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focusVisual: {fileID: 0}
-  inkJSON: {fileID: 4900000, guid: cd215eef944e37445bdeb47c04cd09b3, type: 3}
+  inkJSON: {fileID: 4900000, guid: 1378c911168935e42a2a1dc1c8f783f7, type: 3}
 --- !u!1 &1842859241
 GameObject:
   m_ObjectHideFlags: 0
@@ -20175,7 +20286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3760909080473998182, guid: ac2042cfe895c4646a4132b782afea76, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.23
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 3760909080473998182, guid: ac2042cfe895c4646a4132b782afea76, type: 3}
       propertyPath: m_LocalPosition.y

@@ -1,0 +1,1 @@
+I'll scare her out before the ghost gets to her! Good idea, Captain Blake. Thank you, Captain Blake. Now, this orb looks pretty heavy, a perfect weight to scare her with surely.

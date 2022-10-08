@@ -1,0 +1,1 @@
+Ugh, I told them if we got separated to head back to the ship, but do they listen to me? No, of course not. Well, I better figure out a way to get these bozos out of here. Should I scare them? Or maybe there’s something around here to get rid of that annoying phantom.
