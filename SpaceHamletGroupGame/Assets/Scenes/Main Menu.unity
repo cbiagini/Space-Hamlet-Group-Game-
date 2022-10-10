@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneLoadButton: 32
-  sceneToLoad: SampleScene
+  sceneToLoad: Introduction
 --- !u!1 &233338560
 GameObject:
   m_ObjectHideFlags: 0
