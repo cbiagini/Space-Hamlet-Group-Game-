@@ -29,6 +29,11 @@ public class DialogueManager : MonoBehaviour
     private const string ACTION_TAG = "do";
     private const string ACTION_WHAT_TAG = "to";
 
+    public KeyCode sceneLoadButton;
+    public string sceneToLoad;
+    //bool hasTriggered;
+    private CollisionTriggerDialogue victoryEndingTriggered;
+
     private void Awake()
     {
         if (instance != null)
@@ -187,5 +192,11 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(dialogueIsPlaying);
         dialogueText.text = "";
         TimerScript.GetInstance().timerPaused = false;
+
+        if (dialogueIsPlaying == false && victoryEndingTriggered == true)
+            SceneManager.LoadScene(sceneToLoad);
+        //hasTriggered = true;
+        
     }
+
 }
