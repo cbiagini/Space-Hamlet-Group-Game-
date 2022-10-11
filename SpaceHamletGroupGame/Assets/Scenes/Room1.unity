@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1655680590}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1161,6 +1161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focusVisual: {fileID: 0}
   inkJSON: {fileID: 4900000, guid: cd215eef944e37445bdeb47c04cd09b3, type: 3}
+  selectedTouchItem: 0
+  touchItem: {fileID: 0}
 --- !u!1 &377522416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,6 +1353,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focusVisual: {fileID: 0}
   inkJSON: {fileID: 4900000, guid: 72398053024e0b045a9116d75b9f806c, type: 3}
+  selectedTouchItem: 0
+  touchItem: {fileID: 0}
 --- !u!1 &380755074
 GameObject:
   m_ObjectHideFlags: 0
@@ -13586,6 +13590,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2548394524189523742, guid: 2e4ca000f3383fe429128d90221cedb4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 707082152}
+    - target: {fileID: 2548394524189523742, guid: 2e4ca000f3383fe429128d90221cedb4, type: 3}
       propertyPath: controllableObjects.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -13652,6 +13660,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2548394524189523737, guid: 2e4ca000f3383fe429128d90221cedb4, type: 3}
   m_PrefabInstance: {fileID: 704148162}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &707082153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707082152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e003d1fd798eb4bb14098a3ac3973f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrierSize: 20
 --- !u!54 &707082157
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13752,7 +13773,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.9
+  m_fontSize: 21.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -14506,7 +14527,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focusVisual: {fileID: 0}
-  inkJSON: {fileID: 0}
+  inkJSON: {fileID: 4900000, guid: 23c8c79c40f835b45a3a79010c700532, type: 3}
+  selectedTouchItem: 1
+  touchItem: {fileID: 1788883319}
 --- !u!1 &1053951728
 GameObject:
   m_ObjectHideFlags: 0
@@ -19187,6 +19210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focusVisual: {fileID: 0}
   inkJSON: {fileID: 4900000, guid: cd215eef944e37445bdeb47c04cd09b3, type: 3}
+  selectedTouchItem: 0
+  touchItem: {fileID: 0}
 --- !u!1 &1230814834
 GameObject:
   m_ObjectHideFlags: 0
@@ -19714,6 +19739,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1451751211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1451751212}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1451751212
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451751211}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20, y: 20, z: -11.1895275}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1462208126 stripped
 GameObject:
@@ -20448,6 +20503,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focusVisual: {fileID: 0}
   inkJSON: {fileID: 4900000, guid: e76f4ebdf90db9840a667e131405c983, type: 3}
+  selectedTouchItem: 0
+  touchItem: {fileID: 0}
 --- !u!65 &1627360863
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20643,7 +20700,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focusVisual: {fileID: 0}
-  inkJSON: {fileID: 0}
+  inkJSON: {fileID: 4900000, guid: a07feaff12015db44858f39c00e81cfa, type: 3}
+  selectedTouchItem: 1
+  touchItem: {fileID: 1213303437}
 --- !u!1 &1687193751
 GameObject:
   m_ObjectHideFlags: 0
@@ -20955,6 +21014,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focusVisual: {fileID: 0}
   inkJSON: {fileID: 4900000, guid: 1378c911168935e42a2a1dc1c8f783f7, type: 3}
+  selectedTouchItem: 0
+  touchItem: {fileID: 0}
 --- !u!1 &1819076635
 GameObject:
   m_ObjectHideFlags: 0

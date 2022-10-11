@@ -12,6 +12,8 @@ public class SpeakTrigger : MonoBehaviour
     public TextAsset inkJSON;
     private bool playerInRange;
     private bool playerClicking;
+    public bool selectedTouchItem;
+    public GameObject touchItem;
 
     private void Awake()
     {
@@ -31,32 +33,47 @@ public class SpeakTrigger : MonoBehaviour
         {
             if (playerClicking)
             {
-                Debug.Log("Attempting to speak with " + gameObject);
-                /*if (mySpeech != null)
-                {
-                    mySpeech.pitch = Random.Range(0.9f, 1.2f);
-                    mySpeech.Play();
-                }*/
-                DialogueManager.GetInstance().EnterDialogueMode(inkJSON, focusVisual);
+                
             }
         }
     }
 
     private void OnTriggerEnter(Collider other) //this trigger collider is on child(1)
     {
-        if (other.gameObject.tag == "Player")
+        if ((other.gameObject.tag == "Player")&&(!selectedTouchItem))
         {
             playerInRange = true;
             Debug.Log("In range of " + gameObject);
+        }
+
+        if ((selectedTouchItem) && (other.gameObject == touchItem))
+        {
+            EnterDialogueMode();
         }
     }
 
     private void OnTriggerExit(Collider other) //this trigger collider is on child(1)
     {
-        if (other.gameObject.tag == "Player")
+        if ((other.gameObject.tag == "Player") && (!selectedTouchItem))
         {
             playerInRange = false;
             Debug.Log("Exited range of " + gameObject);
         }
+
+        if ((selectedTouchItem) && (other.gameObject == touchItem))
+        {
+            EnterDialogueMode();
+        }
+    }
+
+    private void EnterDialogueMode()
+    {
+        Debug.Log("Attempting to speak with " + gameObject);
+        /*if (mySpeech != null)
+        {
+            mySpeech.pitch = Random.Range(0.9f, 1.2f);
+            mySpeech.Play();
+        }*/
+        DialogueManager.GetInstance().EnterDialogueMode(inkJSON, focusVisual);
     }
 }

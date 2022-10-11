@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
 
         if ((canPossess)&&(hoveringOver!=null))
         {
+            //add colorchange
+            hoveringOver.GetComponent<Material>().color = Color.red;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 PossesserSwitch.GetInstance().changeControl(hoveringOver);
@@ -99,6 +101,7 @@ public class PlayerController : MonoBehaviour
             canPossess = true;
             hoveringOver = other.gameObject;
             Debug.Log("Colliding with" + other + ". Can possess: " + canPossess);
+            
         } else
         {
             //canPossess = false;
