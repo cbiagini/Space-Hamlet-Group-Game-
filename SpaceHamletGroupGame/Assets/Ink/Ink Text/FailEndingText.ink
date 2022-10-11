@@ -1,1 +1,1 @@
-FAIL ENDING
+Aw, fuck

@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         if ((canPossess)&&(hoveringOver!=null))
         {
             //add colorchange
-            hoveringOver.GetComponent<Material>().color = Color.red;
+            //hoveringOver.GetComponent<Material>().color = Color.red;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 PossesserSwitch.GetInstance().changeControl(hoveringOver);
