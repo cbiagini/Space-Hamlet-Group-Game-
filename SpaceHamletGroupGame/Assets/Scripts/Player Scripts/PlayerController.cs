@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
         {
             canPossess = true;
             hoveringOver = other.gameObject;
-            Debug.Log("Colliding with" + other + ". Can possess: " + canPossess);
+            //Debug.Log("Colliding with" + other + ". Can possess: " + canPossess);
             
         } else
         {

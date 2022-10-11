@@ -13,7 +13,8 @@ public class DialogueManager : MonoBehaviour
 
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueText;
-    public TextMeshProUGUI speakerName;
+    public GameObject npcDiaPanel;
+    public TextMeshProUGUI npcDiaPanelText;
     //[SerializeField] private Animator currentAnimator;
     public Story currentStory;
     public bool dialogueIsPlaying { get; private set; }
@@ -26,7 +27,7 @@ public class DialogueManager : MonoBehaviour
 
     private const string SPEAKER_TAG = "speaker";
     private const string EMOTION_TAG = "emotion";
-    private const string ACTION_TAG = "do";
+    private const string ACTION_TAG = "goto";
     private const string ACTION_WHAT_TAG = "to";
 
     public KeyCode sceneLoadButton;
@@ -53,6 +54,7 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(dialogueIsPlaying);
+        npcDiaPanel.SetActive(dialogueIsPlaying);
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
         foreach (GameObject choice in choices)
@@ -81,6 +83,7 @@ public class DialogueManager : MonoBehaviour
 
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(dialogueIsPlaying);
+
         dialogueVarDictionary.StartListening(currentStory);
         TimerScript.GetInstance().timerPaused = true;
         /*if (animator != null) {
@@ -89,6 +92,7 @@ public class DialogueManager : MonoBehaviour
         //copied code from continue story WITHOUT the exit dialogue tag. test on launch to see if it works or if it does the same thing as on the editor!
         Debug.Log("Story of " + gameObject + " is starting...");
         dialogueText.text = currentStory.Continue();
+        npcDiaPanelText.text = dialogueText.text; //redundant, so i don't have to rewrite this
         Debug.Log(dialogueText.text);
         DisplayChoices();
         InkTagHandler(currentStory.currentTags);
@@ -101,6 +105,7 @@ public class DialogueManager : MonoBehaviour
         {
             Debug.Log("Story of " + gameObject + " is continuing...");
             dialogueText.text = currentStory.Continue();
+            npcDiaPanelText.text = dialogueText.text; //redundant, so i don't have to rewrite this
             Debug.Log(dialogueText.text);
             DisplayChoices();
             InkTagHandler(currentStory.currentTags);
@@ -151,7 +156,14 @@ public class DialogueManager : MonoBehaviour
             switch (tagKey)
             {
                 case SPEAKER_TAG:
-                    speakerName.text = tagValue;
+                    if (tagValue == "NPC") { 
+                        npcDiaPanel.SetActive(dialogueIsPlaying);
+                        dialoguePanel.SetActive(!dialogueIsPlaying);
+                    } else //if (tagValue == "Player")
+                    {
+                        npcDiaPanel.SetActive(!dialogueIsPlaying);
+                        dialoguePanel.SetActive(dialogueIsPlaying);
+                    }
                     break;
                 case EMOTION_TAG:
                     //if (currentAnimator != null) currentAnimator.SetTrigger(tagValue);
@@ -159,7 +171,7 @@ public class DialogueManager : MonoBehaviour
                     Debug.Log("Add emotion handler on characters for emotion: " + tagValue); //TODO https://www.youtube.com/watch?v=tVrxeUIEV9E
                     break;
                 case ACTION_TAG:
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    SceneManager.LoadScene(tagValue); //
                     break;
                 default:
                     Debug.LogWarning("Incorrectly handled tag! " + tag);
@@ -171,7 +183,7 @@ public class DialogueManager : MonoBehaviour
 
     public void SetVariableState(string variableName, Ink.Runtime.Object variableValue) //ink.runtime.object if using the commented out one
     {
-        //currentStory.variablesState["variableName"] = variableValue;
+        currentStory.variablesState["variableName"] = variableValue;
 
         if (dialogueVarDictionary.variables.ContainsKey(variableName))
         {
@@ -190,6 +202,7 @@ public class DialogueManager : MonoBehaviour
         dialogueVarDictionary.StopListening(currentStory);
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(dialogueIsPlaying);
+        npcDiaPanel.SetActive(dialogueIsPlaying);
         dialogueText.text = "";
         TimerScript.GetInstance().timerPaused = false;
 

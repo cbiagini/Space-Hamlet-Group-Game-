@@ -10,8 +10,25 @@ public class PlayerLimiter : MonoBehaviour
     {
         if (transform.position.x > barrierSize)
         {
-            
+            gameObject.transform.position = new Vector2(barrierSize, transform.position.y);
         }
+
+        if (transform.position.x < (barrierSize*-1))
+        {
+            gameObject.transform.position = new Vector2((barrierSize*-1), transform.position.y);
+        }
+
+        if (transform.position.y > barrierSize)
+        {
+            gameObject.transform.position = new Vector2(transform.position.x, barrierSize);
+        }
+
+        if (transform.position.y < (barrierSize * -1))
+        {
+            gameObject.transform.position = new Vector2(transform.position.x, (barrierSize * -1));
+        }
+
+
 
     }
 }

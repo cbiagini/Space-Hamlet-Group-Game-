@@ -1,1 +1,1 @@
-﻿{"inkVersion":20,"root":[["^Oh shit. Oh shit. I didn't sign up for this. I'm outta here!","\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}
+﻿{"inkVersion":20,"root":[["^Oh shit. Oh shit. I didn't sign up for this. I'm outta here! ",{"#":"speaker:NPC"},"\n","^. ",{"#":"goto:Room1Victory"},"\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}

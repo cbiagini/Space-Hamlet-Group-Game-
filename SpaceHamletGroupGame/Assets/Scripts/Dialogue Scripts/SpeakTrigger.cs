@@ -33,7 +33,7 @@ public class SpeakTrigger : MonoBehaviour
         {
             if (playerClicking)
             {
-                
+                EnterDialogueMode();
             }
         }
     }
