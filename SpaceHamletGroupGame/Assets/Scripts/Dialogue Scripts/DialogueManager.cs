@@ -15,7 +15,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public GameObject npcDiaPanel;
     public TextMeshProUGUI npcDiaPanelText;
-    //[SerializeField] private Animator currentAnimator;
+    [SerializeField] private Animator currentAnimator;
     public Story currentStory;
     public bool dialogueIsPlaying { get; private set; }
 
@@ -166,9 +166,8 @@ public class DialogueManager : MonoBehaviour
                     }
                     break;
                 case EMOTION_TAG:
-                    //if (currentAnimator != null) currentAnimator.SetTrigger(tagValue);
-                    //else Debug.Log("Attempted to give " + tagValue + " to animator but there is no animator");
-                    Debug.Log("Add emotion handler on characters for emotion: " + tagValue); //TODO https://www.youtube.com/watch?v=tVrxeUIEV9E
+                    if (currentAnimator != null) currentAnimator.SetTrigger(tagValue);
+                    else Debug.Log("Attempted to give " + tagValue + " to animator but there is no animator");
                     break;
                 case ACTION_TAG:
                     SceneManager.LoadScene(tagValue); //

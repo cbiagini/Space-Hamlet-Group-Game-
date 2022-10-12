@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-
     public AudioSource BGM;
 
     // Start is called before the first frame update
@@ -29,5 +28,10 @@ public class AudioManager : MonoBehaviour
         BGM.Stop();
         BGM.clip = music;
         BGM.Play();
+    }
+
+    public void SetVolume(float volume)
+    {
+        BGM.volume = volume;
     }
 }

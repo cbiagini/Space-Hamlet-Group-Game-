@@ -1,0 +1,1 @@
+﻿{"inkVersion":20,"root":[["^Wait, is that... a vent? ",{"#":"speaker:NPC"},"\n","^Maybe I can leave through there! ",{"#":"speaker:NPC"},"\n","^Alright! Good job, me. Now let's leave too... ",{"#":"speaker:Player"},"\n","^. ",{"#":"goto:Room1Victory"},"\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}
