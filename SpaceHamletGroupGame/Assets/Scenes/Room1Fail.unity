@@ -250,8 +250,8 @@ RectTransform:
   m_Father: {fileID: 768993399}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.31168085, y: 0.10084543}
-  m_AnchorMax: {x: 0.6833192, y: 0.2682755}
+  m_AnchorMin: {x: 0.3095975, y: 0.212512}
+  m_AnchorMax: {x: 0.6833192, y: 0.35351205}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -288,7 +288,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You Failed
+  m_Text: Mission Failure
 --- !u!222 &165391637
 CanvasRenderer:
   m_ObjectHideFlags: 0
